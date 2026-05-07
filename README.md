@@ -40,12 +40,12 @@ The system generates SQL queries automatically, executes them on PostgreSQL, and
 
 # System Architecture
 
-Frontend (React)
-↓
-Backend API (Spring Boot)
-↓
-AI Service (FastAPI)
-↓
+Frontend (React)  
+↓  
+Backend API (Spring Boot)  
+↓  
+AI Service (FastAPI)  
+↓  
 PostgreSQL Database (Docker)
 
 ---
@@ -90,3 +90,82 @@ CSV datasets are loaded into PostgreSQL using Docker.
 ```bash
 git clone https://github.com/sabriyegulsum/nl2sql-thesis.git
 cd nl2sql-thesis
+```
+
+---
+
+## 2. Start PostgreSQL Docker Container
+
+```bash
+docker start tez-postgres
+```
+
+---
+
+## 3. Run AI Service
+
+```bash
+cd /Users/sabriyesoyla/Desktop/nl2sql_tez
+source ai_service/.venv/bin/activate
+PYTHONPATH=$(pwd) uvicorn ai_service.app.main:app --host 127.0.0.1 --port 8001
+```
+
+---
+
+## 4. Run Backend
+
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+
+---
+
+## 5. Run Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+# Application URLs
+
+| Service | URL |
+|---|---|
+| Frontend | http://localhost:5173 |
+| Backend | http://localhost:8081 |
+| AI Service | http://127.0.0.1:8001 |
+
+---
+
+# Example Queries
+
+- "Top 3 suppliers"
+- "Most expensive products"
+- "Customer with the highest number of orders"
+- "Most sold products"
+- "Average product ratings"
+
+---
+
+# Project Goals
+
+- Explore AI-powered database interaction
+- Improve accessibility of SQL querying
+- Build a scalable NL2SQL architecture
+- Combine AI + Full Stack + Database technologies
+
+---
+
+# CV / Resume Description
+
+AI-powered NL2SQL Full Stack Application developed using React, Spring Boot, FastAPI, PostgreSQL, and Docker. The system converts natural language questions into executable SQL queries and displays real-time database results through an interactive frontend.
+
+---
+
+# GitHub Repository
+
+https://github.com/sabriyegulsum/nl2sql-thesis
