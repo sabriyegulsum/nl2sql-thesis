@@ -1,0 +1,19 @@
+# Python
+ai_service/.venv/
+__pycache__/
+*.pyc
+
+# Node
+frontend/node_modules/
+
+# Java
+backend/target/
+
+# Env
+.env
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
